@@ -1,7 +1,8 @@
 /*
-Write a function that reverses a string. The input string is given as an array of characters s.
+The complement of an integer is the integer you get when you flip all the 0's to 1's and all the 1's to 0's in its binary representation.
 
-You must do this by modifying the input array in-place with O(1) extra memory.
+For example, The integer 5 is "101" in binary and its complement is "010" which is the integer 2.
+Given an integer num, return its complement.
 */
 
 package main

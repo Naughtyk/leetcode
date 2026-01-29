@@ -31,14 +31,34 @@ func main() {
 }
 
 func addStrings(num1 string, num2 string) string {
-	n1, err := strconv.Atoi(num1)
-	if err != nil {
-		return ""
-	}
-	n2, err := strconv.Atoi(num2)
-	if err != nil {
-		return ""
+	addition := ""
+	idx1, idx2, rem := len(num1)-1, len(num2)-1, 0
+
+	for {
+		n1, n2 := 0, 0
+
+		if idx1 < 0 && idx2 < 0 {
+			break
+		}
+
+		if idx1 >= 0 {
+			n1, _ = strconv.Atoi(string(num1[idx1]))
+			idx1--
+		}
+
+		if idx2 >= 0 {
+			n2, _ = strconv.Atoi(string(num2[idx2]))
+			idx2--
+		}
+
+		sum := n1 + n2 + rem
+		digit := sum % 10
+		rem = sum / 10
+		addition = strconv.Itoa(digit) + addition
 	}
 
-	return strconv.Itoa(n1 + n2)
+	if rem != 0 {
+		addition = strconv.Itoa(rem) + addition
+	}
+	return addition
 }
